@@ -11,6 +11,9 @@ int main() {
         switch (userSelection) {
             case 1:
                 q1();
+                break;
+            default:
+                printf("You must enter a number from the menu.\n");
         }
     } while (userSelection != 0);
 
@@ -28,7 +31,7 @@ void q1() {
 
     unsigned char delimit;
     for (int i = 0; i < noInts; i++) {
-        if ((i + 1) % 3 == 0) || (i + 1) == noInts ) {
+        if (((i + 1) % 3 == 0) || ((i + 1) == noInts)) {
             delimit= 0x0a;
         } else {
             delimit= 0x2c;
@@ -43,6 +46,7 @@ int mainMenu() {
     printf("Select a question number:\n");
     printf("0:\tQUIT\n");
     printf("1:\tPrint integers\n");
+    printf("2:\tSum even numbers between 1 and x\n");
     scanf("%d", &userSelection);
     return userSelection;
 }
