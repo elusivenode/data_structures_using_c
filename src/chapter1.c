@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int mainMenu();
-void q1();
+void q1(), q2();
 
 int main() {
 
@@ -12,6 +12,9 @@ int main() {
             case 1:
                 q1();
                 break;
+            case 2:
+                q2();
+                break;
             default:
                 printf("You must enter a number from the menu.\n");
         }
@@ -21,7 +24,30 @@ int main() {
     return 0;
 }
 
+void q2() {
+    printf("\n**********************************************\n");
+    printf("Question 2\n");
+    printf("**********************************************\n");
+
+    int userInt;
+    printf("Please enter an integer number:");
+    scanf("%d:", &userInt);
+
+    int totalEvens = 0;
+    for (int i = 2; i <= userInt; i += 2) {
+        totalEvens += i;
+    }
+
+    printf("The sum total of the even numbers between 1 and %d id %d.\n", userInt, totalEvens);
+
+    printf("\n\n");
+}
+
 void q1() {
+    printf("\n**********************************************\n");
+    printf("Question 1\n");
+    printf("**********************************************\n");
+
     int noInts = 10;
     int ints[noInts];
     for (int i = 0; i < noInts; i++) {
@@ -38,6 +64,7 @@ void q1() {
         }
         printf("%d%c", ints[i], delimit);
     }
+    printf("\n\n");
 }
 
 int mainMenu() {
