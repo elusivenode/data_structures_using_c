@@ -5,7 +5,7 @@
 
 
 int mainMenu();
-void q1(), q2(), q3(), q4(), q5(), q6();
+void q1(), q2(), q3(), q4(), q5(), q6(), q7();
 void breakUpInts(int *, int, int);
 int noOfDigits(int);
 
@@ -33,6 +33,9 @@ int main() {
             case 6:
                 q6();
                 break;
+            case 7:
+                q7();
+                break;
             default:
                 printf("You must enter a number from the menu.\n");
         }
@@ -53,8 +56,39 @@ int mainMenu() {
     printf("4:\tPrint address\n");
     printf("5:\tAdd to floats and store in int\n");
     printf("6:\tAccess the parts of a float\n");
+    printf("7:\tCalculate simple and compound interest\n");
     scanf("%d", &userSelection);
     return userSelection;
+}
+
+void  q7() {
+    printf("\n**********************************************\n");
+    printf("Question 7\n");
+    printf("**********************************************\n\n");
+
+    double years, rate, principal, simpleinterest, compinterest, comprate;
+    int noDays;
+    printf("This will program will calculate interest payable - both simple and compound.\n\n");
+    printf("Enter a loan principal amount: ");
+    scanf("%lf", &principal);
+    printf("Enter an interest rate (eg. 4.05 for 4.05%): ");
+    scanf("%lf", &rate);
+    printf("Enter a loan period in years (eg. 0.5 for 6 months): ");
+    scanf("%lf", &years);
+
+    simpleinterest = principal * rate / 100 * years;
+    noDays = years * 365;
+
+    comprate = pow(1 + rate/(100.0 * 365.0), (double)noDays) - 1;
+    compinterest = principal * comprate;
+
+    printf("\nLoan details: principal $%.2lf\tinterest rate %.2lf%\tterm %.1lf years\n", principal, rate, years);
+    printf("Simple interest payable:\t\t$%8.2lf\n", simpleinterest);
+    printf("Compound interest payable:\t\t$%8.2lf\n", compinterest);
+    printf("Simple interest rate for the period:\t\t%8.2lf%\n", rate * years);
+    printf("Compound interest rate for the period:\t\t%8.2lf%\n", comprate * 100);
+
+    printf("\n**********************************************\n");
 }
 
 void  q6() {
