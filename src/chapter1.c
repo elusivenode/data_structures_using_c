@@ -4,7 +4,7 @@
 
 
 int mainMenu();
-void q1(), q2(), q3(), q4();
+void q1(), q2(), q3(), q4(), q5();
 
 int main() {
 
@@ -24,6 +24,9 @@ int main() {
             case 4:
                 q4();
                 break;
+            case 5:
+                q5();
+                break;
             default:
                 printf("You must enter a number from the menu.\n");
         }
@@ -42,13 +45,31 @@ int mainMenu() {
     printf("2:\tSum even numbers between 1 and x\n");
     printf("3:\tCount the number of vowels\n");
     printf("4:\tPrint address\n");
+    printf("5:\tAdd to floats and store in int\n");
     scanf("%d", &userSelection);
     return userSelection;
 }
 
+void  q5() {
+    printf("\n**********************************************\n");
+    printf("Question 5\n");
+    printf("**********************************************\n\n");
+
+    float f1, f2;
+    int sum;
+
+    printf("Please enter 2 floating point numbers: ");
+    scanf("%f %f", &f1, &f2);
+    printf("\nYou entered %f1 and %f2\n", f1, f2);
+    sum = f1 + f2;
+    printf("There sum stored in an int is %d\n", sum);
+
+    printf("\n**********************************************\n");
+}
+
 void  q4() {
     printf("\n**********************************************\n");
-    printf("Question 3\n");
+    printf("Question 4\n");
     printf("**********************************************\n\n");
 
     printf("Dear user, please enter you name and address (with , separators and . terminator)\n");
@@ -97,7 +118,7 @@ void  q4() {
         pStr = NULL;
     }
 
-    printf("\n\n");
+    printf("\n**********************************************\n");
 }
 
 void q3() {
@@ -156,7 +177,7 @@ void q3() {
         pStr = NULL;
     }
 
-    printf("\n\n");
+    printf("\n**********************************************\n");
 }
 
 void q2() {
@@ -175,7 +196,7 @@ void q2() {
 
     printf("The sum total of the even numbers between 1 and %d id %d.\n", userInt, totalEvens);
 
-    printf("\n\n");
+    printf("\n**********************************************\n");
 }
 
 void q1() {
@@ -199,5 +220,5 @@ void q1() {
         }
         printf("%d%c", ints[i], delimit);
     }
-    printf("\n\n");
+    printf("\n**********************************************\n");
 }
