@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 
 int mainMenu();
-void q1(), q2(), q3(), q4(), q5();
+void q1(), q2(), q3(), q4(), q5(), q6();
+void breakUpInts(int *, int, int);
+int noOfDigits(int);
 
 int main() {
 
@@ -27,6 +30,9 @@ int main() {
             case 5:
                 q5();
                 break;
+            case 6:
+                q6();
+                break;
             default:
                 printf("You must enter a number from the menu.\n");
         }
@@ -46,8 +52,47 @@ int mainMenu() {
     printf("3:\tCount the number of vowels\n");
     printf("4:\tPrint address\n");
     printf("5:\tAdd to floats and store in int\n");
+    printf("6:\tAccess the parts of a float\n");
     scanf("%d", &userSelection);
     return userSelection;
+}
+
+void  q6() {
+    printf("\n**********************************************\n");
+    printf("Question 6\n");
+    printf("**********************************************\n\n");
+
+    double flt, fractional, integral;
+
+    printf("Please enter a floating point number: ");
+    scanf("%lf", &flt);
+    printf("You entered %lf\n", flt);
+    fractional = modf(flt, &integral);
+    printf("That float has integral component %lf and fractional component %lf\n", integral, fractional);
+
+    int ndigs = 0;
+    ndigs = noOfDigits(integral);
+    int ints[ndigs];
+
+    breakUpInts(ints, ndigs, integral);
+    printf("The integral component is made up of the following digits from least to most significant:\n");
+    for(int i = 0; i < ndigs; i++) {
+        printf("\t%d", ints[i]);
+    }
+    printf("\n**********************************************\n");
+}
+
+int noOfDigits(int val) {
+    int ct = 1;
+    while(val/=10) ct++;
+    return ct;
+}
+
+void breakUpInts(int * ints, int ndigs, int val) {
+    for(int i = 0; i < ndigs; i++) {
+        ints[i] = (val%10);
+        val/=10;
+    }
 }
 
 void  q5() {
